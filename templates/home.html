@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Changer</title>
+  </head>
+  <style>
+    body {
+      padding-top: 110px;
+        background-color: {{background_color}};
+        color : {{text_color}}
+      }
+    
+      .container {
+        /* height: 200px; */
+        /* background: #cccccc; */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: auto;
+      }
+    
+      .box {
+        background-color: #e0918a;
+        width: 550px;
+        height: 380px;
+        -webkit-box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        box-shadow: 2px 2px 13px -4px rgba(0, 0, 0, 0.21);
+        border-radius: 15px;
+      }
+    
+      .btn {
+        border: 1px solid #eb796f;
+        background-color: #fafafa;
+        color: #eb796f;
+        padding: 10px;
+        font-size: 14px;
+        border-radius: 10px;
+        margin-left: 12.5rem;
+        margin-top: 43px;
+        width: 159px;
+      }
+    
+      input[type="text"] {
+        border: 1px solid #eb796f;
+        border-radius: 10px;
+        padding: 10px;
+        width: 50%;
+        margin-left: 7.9rem;
+        text-align: center;
+      }
+      .header-text{
+        text-align: center;
+      }
+      .color-header1{
+        font-size: large;
+        font-weight: 600;
+        /* margin-left: 12.5rem; */
+        text-align: center;
+      }
+      .color-header2{
+        font-size: large;
+        font-weight: 600;
+        /* margin-left: 14.2rem; */
+        text-align: center;
+      }
+      @media only screen and (max-width: 768px) {
+        body {
+        padding-top: 185px;
+      }
+      input[type="text"] {
+        border: 2px solid #eb796f;
+        border-radius: 16px;
+        padding: 13px;
+        width: 63%;
+        margin-left: 3.5rem;
+        text-align: center;
+      }
+      .btn{
+        padding: 11px;
+        font-size: 16px;
+        border-radius: 13px;
+        margin-left: 7rem;
+        margin-top: 43px;
+        width: 163px;
+      }
+      }
+  </style>
+
+  <body>
+    <div class="container">
+      <div class="box">
+        <h2 class="header-text">Color Changer</h2>
+        <form action="" method="POST">
+          {%csrf_token%}
+          <div>
+            <p class="color-header1">Background Color:</p>
+            <input
+              type="text"
+              name="Background_Color"
+              placeholder="Enter Color For Background"
+            />
+          </div>
+
+          <div>
+            <p class="color-header2">Text Color:</p>
+            <input
+              type="text"
+              name="text_Color"
+              placeholder="Enter Color For Texts"
+            />
+          </div>
+
+          <!-- <br /> -->
+          <button type="submit" class="btn">Apply Changes</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
